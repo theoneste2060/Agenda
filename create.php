@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +19,28 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="card col-md-4">
-                    <h3><center>I can't wait to create account!</center></h3>
-                    <form class="" action="" method="post">
+                    <h6><center>I can't wait to create account!</center></h6>
+                    <form action="insert.php" method="post">
+                        <div class="text-success">
+                            <h6>
+                            <center>
+                                <?php
+                                if(isset($_SESSION['create_success']))
+                                echo $_SESSION['create_success'];
+                                ?>
+                            </center>
+                            </h6>
+                        </div>
+                        <div class="text-danger">
+                            <h6>
+                            <center>
+                                <?php
+                                if(isset($_SESSION['create_failed']))
+                                echo $_SESSION['create_failed'];
+                                ?>
+                            </center>
+                            </h6>
+                        </div>
                         <div class="form-group">
                             <label class="form-label text-primary">Username:</label>
                             <input type="text" name="username" class="form-control" required>
@@ -30,6 +55,9 @@
                         </div>
                         <div><a href="login.php"> Have an account? SIGN IN</a></div>
                     </form>
+                    <?php
+                    session_destroy();
+                    ?>
                 </div>
                 <div class="col-md-4"></div>
             </div>

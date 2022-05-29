@@ -15,7 +15,17 @@
                 <div class="col-md-4"></div>
                 <div class="card col-md-4">
                     <h3><center>Login form</center></h3>
-                    <form class="" action="insert.php" method="post">
+                    <form class="" action="loginback.php" method="post">
+                    <div class="text-danger">
+                            <h6>
+                            <center>
+                                <?php
+                                if(isset( $_SESSION['invalid'] ))
+                                echo  $_SESSION['invalid'] ;
+                                ?>
+                            </center>
+                            </h6>
+                        </div>
                         <div class="form-group">
                             <label class="form-label text-primary">Username:</label>
                             <input type="text" name="username" class="form-control" required>
